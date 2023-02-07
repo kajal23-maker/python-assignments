@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+<div>
+    <a href="add"><button class="btn">Add new department</button></a>
+    <br><br><br>
+    <table border="1" align="center">
+        <tr>
+            <th>Department ID</th>
+            <th>Department Name</th>
+            <th>Department Manager</th>
+            <th colspan="2"> Operations </th>
+        </tr>
+        {% for dept,emp in depts %}
+        <tr>
+            <td>{{ dept.dept_id }}</td>
+            <td>{{ dept.name }}</td>
+            <td>{{ emp.name }}</td>
+            <td>
+                <a href="update/{{dept.manager_id}}" id="update"><button class="update">Update</button></a>
+            </td>
+            <td>
+
+                    <a href="delete/{{dept.manager_id}}" id="delete"><button class="delete">Delete</button></a>
+
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+</body>
+</html>

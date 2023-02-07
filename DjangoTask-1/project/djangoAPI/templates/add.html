@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'add.css' %}">
+</head>
+<body>
+  <div><h1>ADD NEW DEPARTMENT</h1></div>
+    <form action="/save" method="post">
+        {% csrf_token %}
+        <table align="center">
+            <tr>
+                <td>Department ID: </td>
+                <td><input type="text" name="dept_id" id="dept_id" placeholder="enter id..."></td>
+            </tr>
+            <tr>
+                <td>Department name: </td>
+                <td><input type="text" name="name" id="name"placeholder="enter name..."></td>
+            </tr>
+            <tr>
+                <td>Department manager: </td>
+                <td><input type="text" name="manager" id="manager" placeholder="enter manager..."></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button>Add department</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
